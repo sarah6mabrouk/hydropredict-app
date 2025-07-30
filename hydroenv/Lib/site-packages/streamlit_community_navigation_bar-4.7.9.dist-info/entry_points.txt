@@ -1,0 +1,2 @@
+[console_scripts]
+streamlit-navigation-bar = streamlit_navigation_bar:print_version

@@ -1,0 +1,154 @@
+{# style the navbar #}
+iframe[title="streamlit_navigation_bar.st_navbar"] {
+    pointer-events: auto;
+    height: {{ ui.height }};
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    {% if margin %}
+    width: calc(100% - 6.8rem);
+    margin-left: 3.4rem;
+    margin-right: 3.4rem;
+    {% else %}
+    width: 100%;
+    {% endif %}
+}
+
+
+header[data-testid="stHeader"] {
+    /* So that the navbar does not briefly disappear when switching pages */
+    z-index: 0;
+
+    /* Match navbar's height, e.g. for when `margin` is `True` */
+    height: {{ ui.height }};
+    min-height: {{ ui.height }};
+
+    /* Match navbar's background color, e.g. for when `margin` is `True` */
+    background-color: {{ ui.bg_color }};
+}
+div[data-testid="stAppViewBlockContainer"] {
+    /* Match Streamlit's default spacing after the body */
+    margin-bottom: calc(5.875rem + {{ ui.height }});
+}
+section.stMain {
+    pointer-events: auto;
+    position: relative;
+    top: {{ ui.height }};
+}
+#stDecoration {
+    visibility: hidden;
+}
+
+{# style the menu button #}
+{% if not options["show_menu"] %}
+{% block hide_menu %}{% endblock %}
+{% endif %}
+div[data-testid="stToolbar"] {
+    /* Align the button vertically to the navbar pages */
+    /* top: calc(({{ ui.height }} - 2rem) / 2); */
+
+    /* Leave space to the left that is equal to the top and bottom */
+    right: 0.05rem;
+}
+div[class="stStatusWidget"] {
+    visibility: hidden;
+}
+div[class="stDeployButton"] {
+    visibility: hidden;
+}
+div[class="stAppDeployButton"] {
+    visibility: hidden;
+}
+
+span[data-testid="stMainMenu"] path:nth-of-type(2) {
+    fill: {{ ui.color }};
+}
+span[data-testid="stMainMenu"]:hover path:nth-of-type(2) {
+    fill: {{ ui.hover_color }};
+}
+span[data-testid="stMainMenu"] button[data-testid="baseButton-headerNoPadding"]:hover {
+    background-color: {{ ui.hover_bg_color }};
+}
+
+{# make the menu button clickable #}
+div[data-testid="stAppViewContainer"] {
+    pointer-events: auto;
+}
+
+div[data-testid="stMainBlockContainer"] {
+    pointer-events: none;
+    padding-top: 5rem;
+}
+
+div[data-testid="collapsedControl"], div[data-testid="stSidebarCollapsedControl"] {
+    pointer-events: auto;
+}
+
+div[data-testid="collapsedControl"], div[data-testid="stSidebarCollapsedControl"] div {
+    margin-top: unset;
+}
+
+section[data-testid="stSidebar"] {
+    pointer-events: auto;
+}
+
+section.stMain div.stVerticalBlock {
+    pointer-events: auto;
+}
+
+
+{# style the sidebar button #}
+{% if not options["show_sidebar"] %}
+{% block hide_sidebar %}{% endblock %}
+{% endif %}
+div[data-testid="collapsedControl"], div[data-testid="stSidebarCollapsedControl"] {
+    /* Leave space to the right that is equal to the top and bottom */
+    left: 0.3125rem;
+
+    /* Align the button vertically to the navbar pages */
+    top: calc(({{ ui.height }} - 2rem) / 2);
+}
+
+div[data-testid="collapsedControl"] path:nth-of-type(2),
+div[data-testid="stSidebarCollapsedControl"] path:nth-of-type(2) {
+    fill: {{ ui.color }};
+}
+div[data-testid="collapsedControl"]:hover path:nth-of-type(2),
+div[data-testid="stSidebarCollapsedControl"]:hover path:nth-of-type(2) {
+    fill: {{ ui.hover_color }};
+}
+div[data-testid="collapsedControl"] button[data-testid="baseButton-headerNoPadding"]:hover,
+div[data-testid="stSidebarCollapsedControl"] button[data-testid="baseButton-headerNoPadding"]:hover {
+    background-color: {{ ui.hover_bg_color }};
+}
+div[data-testid="stSidebarContent"] button[data-testid="baseButton-header"]:hover {
+    background-color: rgba(151, 166, 195, 0.25);
+}
+
+{# hide the navigation of the sidebar #}
+{% if options["hide_nav"] %}
+{% block hide_nav %}{% endblock %}
+{% endif %}
+
+{# fix the shadow of the sidebar #}
+{% if options["fix_shadow"] %}
+{% block fix_shadow %}{% endblock %}
+{% endif %}
+{% if options["sidebar_under_navbar"] %}
+section[data-testid="stSidebar"] {
+    background-color: {{ui.bg_color}};
+}
+div[data-testid="stSidebarContent"] {
+    /* margin-top: {{ ui.height }}; */
+    top: {{ ui.height }};
+    background-color: {{ui.theme.backgroundColor}};
+}
+{% endif %}
+
+{# style the chat input #}
+div[data-testid="stBottom"] {
+    /* Compensate for section.main being repositioned */
+    pointer-events: auto;
+    bottom: {{ ui.height }};
+}

@@ -1,0 +1,30 @@
+{% extends "base.css" %}
+
+{% block hide_menu %}
+span[data-testid="stMainMenu"] {
+    visibility: hidden;
+}
+{% endblock %}
+
+{% block hide_sidebar %}
+div[data-testid="collapsedControl"], div[data-testid="stSidebarCollapsedControl"] {
+    visibility: hidden;
+}
+{% endblock %}
+
+{% block hide_nav %}
+div[data-testid="stSidebarNav"] {
+    display: none;
+	background-color: red;
+}
+div[data-testid="stSidebarUserContent"] {
+}
+{% endblock %}
+
+{% block fix_shadow %}
+div[data-testid="stSidebarContent"] {
+    /* Streamlit's default sidebar shadow style */
+    /* box-shadow: rgba(0, 0, 0, 0.16) -2rem 0px 2rem 2rem; */
+    box-shadow: rgba(0, 0, 0, 0.16) -2rem 2rem 2rem 2rem;
+}
+{% endblock %}

@@ -1,0 +1,4 @@
+metric,value
+Accuracy,93%
+Weighed F1-score, 92.6%
+Macro F1-score,89.8%
