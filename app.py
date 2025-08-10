@@ -501,7 +501,7 @@ tableau_url = "https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:
 st.markdown(
     f"""
     <div style="display: flex; justify-content: center;">
-        <iframe src="{tableau_url}" width="1400" height="900" style="border:none;"></iframe>
+        <iframe src="{tableau_url}" width="100%" height="100%" style="border:none;"></iframe>
     </div>
     """,
     unsafe_allow_html=True
