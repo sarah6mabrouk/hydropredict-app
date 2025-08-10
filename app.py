@@ -267,7 +267,7 @@ if base64_image_header:
                     HydroPredict is your intelligent solution for predictive maintenance in hydraulic systems.
                     By leveraging advanced analytics, it helps you anticipate issues before they disrupt your operations.
                 </p>
-                <button class="button-link" onclick="document.getElementById('predictive-maintenance').scrollIntoView({ behavior: 'smooth' });">Learn More</button>
+                <a href="#predictive-maintenance" class="button-link">Learn more</a>
                 <a href="https://github.com/sarah6mabrouk/Hydraulic-System-Failure-Prediction-Using-XGBoost-andPCA" target="_blank" class="button-link">GitHub</a>
             </div>
         </div>
