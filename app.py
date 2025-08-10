@@ -179,6 +179,9 @@ base64_image_section1 = load_base64_image(image_section_1, label="Section 1 Imag
 
 st.markdown("""
 <style>
+html {
+    scroll-behavior: smooth;
+}
 .button-link {
     display: inline-block;
     margin-top: 1.5rem;
@@ -574,7 +577,7 @@ st.markdown("""
 
 st.markdown("""
 <div style= "text-align: center; padding: 50px;">
-    <div class='left hydro-button'>
+    <div class='left button-link'>
         <a href="https://www.linkedin.com/in/sarahmab" target="_blank">
     <button>Contact Me</button>
 </a>
