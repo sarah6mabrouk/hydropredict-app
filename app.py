@@ -8,6 +8,20 @@ import xgboost as xgb
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
 
+
+# 1️⃣ Get the directory where app.py is located
+BASE_DIR = os.path.dirname(__file__)
+
+# 2️⃣ Point to the 'models' folder
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+
+# 3️⃣ Load files safely
+model = jbl.load(os.path.join(MODELS_DIR, "xgb_means_model.pkl"))
+scaler = jbl.load(os.path.join(MODELS_DIR, "scaler.pkl"))
+mean_columns = jbl.load(os.path.join(MODELS_DIR, "mean_columns.pkl"))
+default_input = jbl.load(os.path.join(MODELS_DIR, "default_input.pkl"))
+
+
 # == Set Streamlit page config ==
 st.set_page_config(page_title="HydroPredict", layout="wide")
 # Theme Setup via CSS
