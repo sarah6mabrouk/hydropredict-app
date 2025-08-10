@@ -496,17 +496,20 @@ with col2:
 # == Section 6: tableau dashboard
 st.markdown("## :blue[Visual Insights]")
 
+tableau_url = "https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:showVizHome=no&:embed=true"
+
 st.markdown(
-    """
-    <iframe src="https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:showVizHome=no&:embed=true"
-            width="1200" height="900" style="border:none;"></iframe>
+    f"""
+    <div style="display: flex; justify-content: center;">
+        <iframe src="{tableau_url}" width="1400" height="900" style="border:none;"></iframe>
+    </div>
     """,
     unsafe_allow_html=True
 )
 
 
 
-# == Section 4: Quote from an important person
+# == Section 7: Quote from an important person
 base64_makini = load_base64_image("assets/makini_logo.png", label="Makini logo")
 st.markdown(f"""
 <!-- Quote -->
