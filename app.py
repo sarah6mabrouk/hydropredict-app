@@ -4,22 +4,8 @@ import os
 import joblib as jbl
 import numpy as np
 import pandas as pd
-import xgboost as xgb
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
-
-
-# 1️⃣ Get the directory where app.py is located
-BASE_DIR = os.path.dirname(__file__)
-
-# 2️⃣ Point to the 'models' folder
-MODELS_DIR = os.path.join(BASE_DIR, "models")
-
-# 3️⃣ Load files safely
-model = jbl.load(os.path.join(MODELS_DIR, "xgb_means_model.pkl"))
-scaler = jbl.load(os.path.join(MODELS_DIR, "scaler.pkl"))
-mean_columns = jbl.load(os.path.join(MODELS_DIR, "mean_columns.pkl"))
-default_input = jbl.load(os.path.join(MODELS_DIR, "default_input.pkl"))
 
 
 # == Set Streamlit page config ==
@@ -411,12 +397,16 @@ st.markdown(f"""
 
 @st.cache_resource
 def load_artifacts():
-    base_path = r"C:/Users/sarah/Desktop/Sarah/GMC_Data_science/checkpoints/ml_project/"
-    model = jbl.load(base_path + "xgb_means_model.pkl")
-    scaler = jbl.load(base_path + "means_scaler.pkl")
-    mean_columns = jbl.load(base_path + "mean_columns.pkl")
-    default_input = jbl.load(base_path + "default_input_mean.pkl")
-    return model, scaler, mean_columns, default_input
+    base_path = os.path.join(os.getcwd(), "models")
+    try:
+        model = jbl.load(os.path.join(base_path, "xgb_means_model.pkl"))
+        scaler = jbl.load(os.path.join(base_path, "means_scaler.pkl"))
+        mean_columns = jbl.load(os.path.join(base_path, "mean_columns.pkl"))
+        default_input = jbl.load(os.path.join(base_path, "default_input_mean.pkl"))
+        return model, scaler, mean_columns, default_input
+    except FileNotFoundError as e:
+        st.error(f"File not found: {e}")
+        return None, None, None, None
 
 # Load the saved model, scaler, and feature names
 model, scaler, mean_columns, default_input = load_artifacts()
