@@ -106,8 +106,6 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # Navbar
 #----------------------------------
-import streamlit as st
-
 st.markdown("""
     <style>
         /* Navbar container */
@@ -269,7 +267,7 @@ if base64_image_header:
                     HydroPredict is your intelligent solution for predictive maintenance in hydraulic systems.
                     By leveraging advanced analytics, it helps you anticipate issues before they disrupt your operations.
                 </p>
-                <a href="#learn" class="button-link">Learn more</a>
+                <button class="button-link" onclick="document.getElementById('predictive-maintenance').scrollIntoView({ behavior: 'smooth' });">Learn More</button>
                 <a href="https://github.com/sarah6mabrouk/Hydraulic-System-Failure-Prediction-Using-XGBoost-andPCA" target="_blank" class="button-link">GitHub</a>
             </div>
         </div>
@@ -284,7 +282,7 @@ else:
 
 # == Why predictive maintenance matters ==
 st.markdown(f"""
-    <div style=
+    <div id="predictive-maintenance" style=
         "display: flex; 
         min-height: 400px;
         align-items: center;
