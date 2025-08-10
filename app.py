@@ -495,9 +495,12 @@ with col2:
 
 # == Section 6: tableau dashboard
 st.markdown("## :blue[Visual Insights]")
+
 components.html("""
-<iframe src="https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:showVizHome=no&:embed=true"
-        width="100%" height="900" style="border:none;"></iframe>
+<div style="width:100%; display:flex; justify-content:center;">
+    <iframe src="https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:showVizHome=no&:embed=true"
+            style="width:100%; height:900px; border:none;"></iframe>
+</div>
 """, height=900)
 
 
