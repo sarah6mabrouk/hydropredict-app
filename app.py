@@ -378,13 +378,13 @@ st.markdown(f"""
         </div>
 
         <!-- Right Column: text -->
-        <div style='flex: 1; min-width: 300px;'>
-            <h2 style='margin-bottom: 1rem; color:#7678ff;'>Why Predictive Maintenance Matters</h2>
-            <p style='font-size: 20px; line-height: 1.6;'>
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="margin-bottom: 1rem; color:#7678ff;"> Why Predictive Maintenance Matters</h2>
+            <p style="font-size: 20px; line-height: 1.6;">
                 Predictive Maintenance helps you stay ahead of costly breakdowns by identifying issues before they become failures.
                 It reduces downtime, improves safety, and extends the life of the hydraulic systems.
             </p>
-            <ul style='font-size: 18px; line-height: 1.6;'>
+            <ul style="font-size: 18px; line-height: 1.6;">
                 <li><strong>Cost Efficiency:</strong> Lower maintenance costs by fixing problems early.</li>
                 <li><strong>Operational Safety:</strong> Prevent unexpected failures and ensure a safer environment.</li>
             </ul>
