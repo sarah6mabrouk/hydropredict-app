@@ -169,13 +169,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.sidebar.markdown("""
-- [🏠 Home](#home)
-- [📘 What is Predictive Maintenance](#what)
-- [🔍 Why Predictive Maintenance](#why)
-- [⚙️ HydroPredict App – Process](#process)
-- [🤖 ML Model](#model)
-- [📊 Dashboard](#dashboard)
-- [📬 Contact Me](#contact)
+ [🏠 Home](#home)
+ [📘 What is Predictive Maintenance](#what)
+ [🔍 Why Predictive Maintenance](#why)
+ [⚙️ HydroPredict App – Process](#process)
+ [🤖 ML Model](#model)
+ [📊 Dashboard](#dashboard)
+ [📬 Contact Me](#contact)
 """)
 
 
