@@ -184,6 +184,7 @@ st.sidebar.markdown("""
  [⚙️ HydroPredict App – Process](#process)
  [🤖 ML Model](#model)
  [📊 Dashboard](#dashboard)
+ [💡 Makini](#quote)
  [📬 Contact Me](#contact)
 """, unsafe_allow_html=True)
 
@@ -547,7 +548,9 @@ st.markdown(
 
 
 
-# == Section 7: Quote from an important person
+# == 5. Quote from MAKINI
+st.markdown('<div id="quote"></div>', unsafe_allow_html=True)
+
 base64_makini = load_base64_image("assets/makini_logo.png", label="Makini logo")
 st.markdown(f"""
 <!-- Quote -->
