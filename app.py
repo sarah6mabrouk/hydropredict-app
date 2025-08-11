@@ -150,20 +150,23 @@ st.markdown("""
     overflow: hidden;
 }
 
-/* Style sidebar links */
-.sidebar-content a {
+/* Target all links inside the sidebar */
+[data-testid="stSidebar"] a {
     color: black !important;
-    text-decoration: none !important;
+    text-decoration: none !important;  /* remove underline */
     display: block;
-    margin-bottom: 12px;  /* space between links */
+    margin-bottom: 12px;
     font-weight: normal;
     font-size: 16px;
 }
-.sidebar-content a:hover {
-    color: #7678ff !important;
-    text-decoration: underline !important;
+
+/* Also remove underline and keep black on hover */
+[data-testid="stSidebar"] a:hover {
+    color: black !important;
+    text-decoration: none !important;
 }
 </style>
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("""
 - [🏠 Home](#home)
@@ -174,6 +177,7 @@ st.sidebar.markdown("""
 - [📊 Dashboard](#dashboard)
 - [📬 Contact Me](#contact)
 """)
+
 
 st.markdown("# Welcome to HydroPredict!\n\nUse the sidebar to navigate - Sarah Mabrouk")
 
