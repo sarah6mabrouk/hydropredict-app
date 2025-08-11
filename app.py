@@ -136,46 +136,54 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
+import streamlit as st
+
+# Inject CSS to style sidebar background and links
 st.markdown("""
 <style>
-/* Override entire sidebar background */
-/* Target Streamlit sidebar container */
+/* Sidebar background gradient */
 [data-testid="stSidebar"] > div:first-child {
     background: linear-gradient(135deg, #acd7ff, #ACAEFF);
     border-radius: 0 10px 10px 0;
 }
-/* Make sidebar full height */
+
+/* Sidebar container tweaks */
 [data-testid="stSidebar"] {
     border-radius: 0 10px 10px 0;
     overflow: hidden;
 }
-/* Style links inside sidebar */
-.sidebar-content a {
+
+/* Style sidebar links */
+.css-1aumxhk a {
     color: black !important;
     text-decoration: none !important;
     display: block;
-    margin-bottom: 12px;  /* space between links */
+    margin-bottom: 12px;
     font-weight: normal;
     font-size: 16px;
 }
-.sidebar-content a:hover {
+
+.css-1aumxhk a:hover {
     color: #7678ff !important;
     text-decoration: underline !important;
 }
 </style>
-
-<div class="sidebar-content">
-    <a href="#home">🏠 Home</a>
-    <a href="#what">📘 What is Predictive Maintenance</a>
-    <a href="#why">🔍 Why Predictive Maintenance</a>
-    <a href="#process">⚙️ HydroPredict App – Process</a>
-    <a href="#model">🤖 ML Model</a>
-    <a href="#dashboard">📊 Dashboard</a>
-    <a href="#contact">📬 Contact Me</a>
-</div>
 """, unsafe_allow_html=True)
 
+# Sidebar menu with markdown links (no custom div!)
+st.sidebar.markdown("""
+- [🏠 Home](#home)
+- [📘 What is Predictive Maintenance](#what)
+- [🔍 Why Predictive Maintenance](#why)
+- [⚙️ HydroPredict App – Process](#process)
+- [🤖 ML Model](#model)
+- [📊 Dashboard](#dashboard)
+- [📬 Contact Me](#contact)
+""")
+
+# Main page content
 st.markdown("# Welcome to the app!\n\nUse the sidebar to navigate.")
+
 
 
 
