@@ -292,7 +292,7 @@ if base64_image_header:
                     HydroPredict is your intelligent solution for predictive maintenance in hydraulic systems.
                     By leveraging advanced analytics, it helps you anticipate issues before they disrupt your operations.
                 </p>
-                <a href="#predictive-maintenance" class="button-link">Learn more</a>
+                <a href="#what" class="button-link">Learn more</a>
                 <a href="https://github.com/sarah6mabrouk/Hydraulic-System-Failure-Prediction-Using-XGBoost-andPCA" target="_blank" class="button-link">GitHub</a>
             </div>
         </div>
@@ -312,40 +312,45 @@ else:
 st.markdown('<div id="what"></div>', unsafe_allow_html=True)
 
 # Section title
-st.write("## What is Predictive Maintenance?")
+st.markdown("## <span style='color:blue'>What is Predictive Maintenance?</span>", unsafe_allow_html=True)
 
 # Definition of PdM
-st.markdown("""
-<div style="font-size: 18px;">
-    Predictive maintenance (PdM) is a proactive strategy that uses historical and real-time data—such as vibration, temperature, and acoustic signals—to monitor the health of equipment and anticipate failures before they happen.<br>
-    By identifying anomalies early, it helps reduce unplanned downtime, optimize maintenance schedules, and extend asset lifespan.<br>
-    Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
-</div>
-""", unsafe_allow_html=True)
+# Create two columns
+col1, col2 = st.columns([1, 1])  # You can tweak the ratio if needed
 
-st.write("### blue[This 2-minute video explains it simply.]")
-# Embedded video with styled container
-st.markdown("""
-<div style="
-    background: linear-gradient(135deg, #acd7ff, #ACAEFF);
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 20px;
-">
-    <div style="
-        background: white;
-        border-radius: 8px;
-        overflow: hidden;
-    ">
-        <iframe width="100%" height="400"
-            src="https://www.youtube.com/embed/f8SisiVFFx4"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+with col1:
+    st.markdown("## <span style='color:#7678ff'>What is Predictive Maintenance?</span>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style="font-size: 18px;">
+        Predictive maintenance (PdM) is a proactive strategy that uses historical and real-time data—such as vibration, temperature, and acoustic signals—to monitor the health of equipment and anticipate failures before they happen.<br>
+        By identifying anomalies early, it helps reduce unplanned downtime, optimize maintenance schedules, and extend asset lifespan.<br>
+        Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+    st.markdown("### <span style='color:blue'>This 2-minute video explains it simply.</span>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #acd7ff, #ACAEFF);
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 20px;
+    ">
+        <div style="
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        ">
+            <iframe width="100%" height="400"
+                src="https://www.youtube.com/embed/f8SisiVFFx4"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # == 2. Why predictive maintenance?==
 st.markdown('<div id="why"></div>', unsafe_allow_html=True)
