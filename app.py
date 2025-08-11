@@ -349,26 +349,26 @@ st.markdown("""
 
 # == 2. Why predictive maintenance?==
 st.markdown(f"""
-    <div id="predictive-maintenance" style="
-        display: flex;  
+st.markdown(f"""
+    <div id="predictive-maintenance" style=
+        "display: flex; 
         min-height: 400px;
         align-items: center;
         justify-content: space-between;
         margin-top: 5rem;
         gap: 2rem;
         flex-wrap: wrap;">
-        
-        <!-- Left Column: Image -->
-        <div style="flex: 1; min-width: 200px; text-align: left;">
+        <!-- Left Column: Text -->
+        <div style="flex: 1; min-width: 200px; text-align: right;">
             <img src="data:image/png;base64,{base64_image_section1}" 
             alt="Predictive Maintenance" 
-            style="
-                width: 100%;
-                max-width: 30rem; 
-                border-radius: 15px;">
-        </div>
-
-        <!-- Right Column: Text -->
+            style=
+            "width: 100%;
+            max-width: 30rem; 
+            border-radius: 15px; 
+            ">
+        </div>  
+        <!-- Right Column: Image -->
         <div style="flex: 1; min-width: 300px;">
             <h2 style="margin-bottom: 1rem; color:#7678ff;"> Why Predictive Maintenance Matters</h2>
             <p style="font-size: 20px; line-height: 1.6;">
@@ -379,9 +379,12 @@ st.markdown(f"""
                 <li><strong>Cost Efficiency:</strong> Lower maintenance costs by fixing problems early.</li>
                 <li><strong>Operational Safety:</strong> Prevent unexpected failures and ensure a safer environment.</li>
             </ul>
-        </div>    
+        </div>  
     </div>
+
 """, unsafe_allow_html=True)
+
+
 
 # == Process behind HydroPredict Predictive Maintenance ==
 ## Encoding the pictures to base64 (because we're using html inline in streamlit)
