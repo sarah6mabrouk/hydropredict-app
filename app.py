@@ -384,8 +384,6 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
     </div>
 
-""", unsafe_allow_html=True)
-
 # == Process behind HydroPredict Predictive Maintenance ==
 ## Encoding the pictures to base64 (because we're using html inline in streamlit)
 base64_HydEn = load_base64_image("assets/hydraulic-energy.png", label="HydEn Image")
