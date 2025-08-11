@@ -138,23 +138,48 @@ def load_base64_image(image_path, label="Image"):
 #----------------------------------
 # Sidebar toggle with checkbox
 
-st.sidebar.markdown("""
-### Menu
-- [🏠 Home](#home)
-- [📘 What is Predictive Maintenance](#what)
-- [🔍 Why Predictive Maintenance](#why)
-- [⚙️ HydroPredict App – Process](#process)
-- [🤖 ML Model](#model)
-- [📊 Dashboard](#dashboard)
-- [📬 Contact Me](#contact)
-""")
+import streamlit as st
 
-# Main content
-st.markdown("""
-# Welcome to Hydropredict!
+show_sidebar = st.sidebar.checkbox("Show Sidebar", value=True)
 
-Use the sidebar to navigate.
-""")
+if show_sidebar:
+    st.sidebar.markdown("""
+    <style>
+    /* Sidebar background gradient */
+    .sidebar-content {
+        background: linear-gradient(135deg, #acd7ff, #ACAEFF);
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+    /* Links styling */
+    .sidebar-content a {
+        color: black !important;
+        text-decoration: none !important;
+        display: block;
+        margin-bottom: 12px;  /* space between links */
+        font-weight: normal;
+        font-size: 16px;
+    }
+    /* Optional: link hover effect */
+    .sidebar-content a:hover {
+        color: #7678ff !important;
+        text-decoration: underline !important;
+    }
+    </style>
+
+    <div class="sidebar-content">
+        <a href="#home">🏠 Home</a>
+        <a href="#what">📘 What is Predictive Maintenance</a>
+        <a href="#why">🔍 Why Predictive Maintenance</a>
+        <a href="#process">⚙️ HydroPredict App – Process</a>
+        <a href="#model">🤖 ML Model</a>
+        <a href="#dashboard">📊 Dashboard</a>
+        <a href="#contact">📬 Contact Me</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("# Welcome to the app!\n\nUse the sidebar to navigate.")
 
 
 
