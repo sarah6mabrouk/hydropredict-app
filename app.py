@@ -231,7 +231,6 @@ st.markdown('<div id="home"></div>', unsafe_allow_html=True)
 if base64_image_header:
     st.markdown(
         f"""
-        <div id="home"</div>
         <style>
         .hero-wrapper {{
             position: relative;
