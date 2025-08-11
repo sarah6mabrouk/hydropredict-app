@@ -352,27 +352,34 @@ with col2:
 # == 2. Why predictive maintenance?==
 st.markdown('<div id="why"></div>', unsafe_allow_html=True)
 st.markdown(f"""
-    <div id="predictive-maintenance" style=
-        "display: flex; 
-        min-height: 400px;
+<div style="
+    background: linear-gradient(135deg, #acd7ff, #ACAEFF);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 5rem;
+">
+    <div id="predictive-maintenance" style="
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: 5rem;
         gap: 2rem;
-        flex-wrap: wrap;">
+        flex-wrap: wrap;
+    ">
         <!-- Left Column: image -->
         <div style="flex: 1; min-width: 200px; text-align: left;">
-            <img src="data:image/png;base64,{base64_image_section1}" 
-            alt="Predictive Maintenance" 
-            style=
-            "width: 100%;
-            max-width: 30rem; 
-            border-radius: 15px; 
-            ">
-        </div>  
+            <img src="data:image/png;base64,{base64_image_section1}"
+                alt="Predictive Maintenance"
+                style="
+                    width: 100%;
+                    max-width: 30rem;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                ">
+        </div>
+
         <!-- Right Column: text -->
         <div style="flex: 1; min-width: 300px;">
-            <h2 style="margin-bottom: 1rem; color:#7678ff;"> Why Predictive Maintenance Matters</h2>
+            <h2 style="margin-bottom: 1rem; color:#7678ff;">Why Predictive Maintenance Matters</h2>
             <p style="font-size: 20px; line-height: 1.6;">
                 Predictive Maintenance helps you stay ahead of costly breakdowns by identifying issues before they become failures.
                 It reduces downtime, improves safety, and extends the life of the hydraulic systems.
@@ -381,9 +388,9 @@ st.markdown(f"""
                 <li><strong>Cost Efficiency:</strong> Lower maintenance costs by fixing problems early.</li>
                 <li><strong>Operational Safety:</strong> Prevent unexpected failures and ensure a safer environment.</li>
             </ul>
-        </div>  
+        </div>
     </div>
-
+</div>
 """, unsafe_allow_html=True)
 
 
