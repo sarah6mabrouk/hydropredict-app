@@ -136,9 +136,6 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-import streamlit as st
-
-# Inject CSS to style sidebar background and links
 st.markdown("""
 <style>
 /* Sidebar background gradient */
@@ -156,7 +153,7 @@ st.markdown("""
 /* Style sidebar links */
 .css-1aumxhk a {
     color: black !important;
-    text-decoration: none !important;
+    text-decoration: none !important;  /* no underline */
     display: block;
     margin-bottom: 12px;
     font-weight: normal;
@@ -164,13 +161,12 @@ st.markdown("""
 }
 
 .css-1aumxhk a:hover {
-    color: #7678ff !important;
-    text-decoration: underline !important;
+    color: black !important;            /* keep black on hover */
+    text-decoration: none !important;  /* no underline on hover */
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Sidebar menu with markdown links (no custom div!)
 st.sidebar.markdown("""
 - [🏠 Home](#home)
 - [📘 What is Predictive Maintenance](#what)
@@ -181,8 +177,8 @@ st.sidebar.markdown("""
 - [📬 Contact Me](#contact)
 """)
 
-# Main page content
-st.markdown("# Welcome to the app!\n\nUse the sidebar to navigate.")
+st.markdown("# Welcome to HydroPredict!\n\nUse the sidebar to navigate - Sarah Mabrouk")
+
 
 
 
