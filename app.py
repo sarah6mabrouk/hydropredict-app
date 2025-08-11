@@ -137,23 +137,21 @@ def load_base64_image(image_path, label="Image"):
 # sidebar
 #----------------------------------
 # Sidebar toggle with checkbox
-show_sidebar = st.sidebar.checkbox("Show Sidebar", value=True)
 
-if show_sidebar:
-    st.sidebar.markdown("""
-    ### Menu
-    - [🏠 Home](#home)
-    - [📘 What is Predictive Maintenance](#what)
-    - [🔍 Why Predictive Maintenance](#why)
-    - [⚙️ HydroPredict App – Process](#process)
-    - [🤖 ML Model](#model)
-    - [📊 Dashboard](#dashboard)
-    - [📬 Contact Me](#contact)
-    """)
+st.sidebar.markdown("""
+### Menu
+- [🏠 Home](#home)
+- [📘 What is Predictive Maintenance](#what)
+- [🔍 Why Predictive Maintenance](#why)
+- [⚙️ HydroPredict App – Process](#process)
+- [🤖 ML Model](#model)
+- [📊 Dashboard](#dashboard)
+- [📬 Contact Me](#contact)
+""")
 
 # Main content
 st.markdown("""
-# Welcome to the app!
+# Welcome to Hydropredict!
 
 Use the sidebar to navigate.
 """)
