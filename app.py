@@ -227,7 +227,6 @@ base64_image_section1 = load_base64_image(image_section_1, label="Section 1 Imag
 
 
 # === Hero Section with Background Image ===
-st.markdown('<div id="home"></div>', unsafe_allow_html=True)
 if base64_image_header:
     st.markdown(
         f"""
@@ -300,50 +299,12 @@ if base64_image_header:
     )
 else:
     st.write("Could not load image background. Check image path and file format.")
-
+    
 # -----------------------------
 #  Page content
 # ------------------------------
 
-# == 1. What is Predictive maintenance
-
-# Anchor for scrolling
-st.markdown('<div id="what"></div>', unsafe_allow_html=True)
-
-# Section title
-st.write("## Not familiar with Predictive Maintenance? :blue[This 2-minute video explains it simply.]")
-
-# Definition paragraph
-st.markdown("""
-Predictive maintenance (PdM) is a proactive strategy that uses historical and real-time data—such as vibration, temperature, and acoustic signals—to monitor the health of equipment and anticipate failures before they happen.  
-By identifying anomalies early, it helps reduce unplanned downtime, optimize maintenance schedules, and extend asset lifespan.  
-Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
-""")
-
-# Embedded video with styled container
-st.markdown("""
-<div style="
-    background: linear-gradient(135deg, #acd7ff, #ACAEFF);
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 20px;
-">
-    <div style="
-        background: white;
-        border-radius: 8px;
-        overflow: hidden;
-    ">
-        <iframe width="100%" height="400"
-            src="https://www.youtube.com/embed/f8SisiVFFx4"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# == 2. Why predictive maintenance?==
+# == Why predictive maintenance matters ==
 st.markdown(f"""
     <div id="predictive-maintenance" style=
         "display: flex; 
@@ -379,16 +340,39 @@ st.markdown(f"""
 
 """, unsafe_allow_html=True)
 
+# == explanatory video
+st.write("## Not familiar with Predictive Maintenance? :blue[This 2-minute video explains it simply.]")
+
+st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #acd7ff, #ACAEFF);
+        border-radius: 10px;
+        padding: 10px;
+    ">
+        <div style="
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        ">
+            <iframe width="100%" height="400"
+                src="https://www.youtube.com/embed/f8SisiVFFx4"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
+
 # == Process behind HydroPredict Predictive Maintenance ==
 ## Encoding the pictures to base64 (because we're using html inline in streamlit)
 base64_HydEn = load_base64_image("assets/hydraulic-energy.png", label="HydEn Image")
 base64_step = load_base64_image("assets/step.png", label="Step Image")
 base64_insights = load_base64_image("assets/insight.png", label = "Inight Image")
 
-st.markdown('<div id="process"></div>', unsafe_allow_html=True)
 st.markdown(f"""
 <div style="margin-top: 5rem; margin-bottom: 5rem;">
-    <h2 style="text-align: left; margin-bottom: 2rem; color:#7678ff;">⚙️ Discover the streamlined process behind HydroPredict's predictive maintenance technology.
+    <h2 style="text-align: left; margin-bottom: 2rem; color:#7678ff;"> Discover the streamlined process behind HydroPredict's predictive maintenance technology.
     </h2>
     <div style="
             display:flex;
@@ -431,9 +415,7 @@ st.markdown(f"""
 
 
 
-# == 3. ML Model
-
-st.markdown('<div id="model"></div>', unsafe_allow_html=True)
+# == Section 5: ML Model
 
 @st.cache_resource
 def load_artifacts():
@@ -454,7 +436,7 @@ model, scaler, mean_columns, default_input = load_artifacts()
 #define columns
 col1, col2 = st.columns([2, 3])
 with col1:
-    st.markdown("## :blue[🤖 Test Our Model: Predict Leakage with Your Data]")
+    st.markdown("## :blue[Test Our Model: Predict Leakage with Your Data]")
 
     st.markdown("""
         <h3 style='color:#7678ff;'>🧠 What Does the Model Do?</h3>
@@ -533,10 +515,8 @@ with col2:
 
 
 
-# == 4.tableau dashboard
-st.markdown('<div id="dashboard"></div>', unsafe_allow_html=True)
-
-st.markdown("## :blue[📊 Visual Insights: Dashboard]")
+# == Section 6: tableau dashboard
+st.markdown("## :blue[Visual Insights]")
 
 tableau_url = "https://public.tableau.com/views/InternalPumpLeakage/Dashboard1?:showVizHome=no&:embed=true"
 
@@ -595,8 +575,7 @@ st.markdown(f"""
 # ----------------------------
 # Call to Action
 # ----------------------------
-st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
-
+# Option 1 – Empowering tone
 st.markdown("""
     <div style='color:#7678ff; font-size:22px;'>
         ♦ Curious how predictive maintenance could transform your workflow?
