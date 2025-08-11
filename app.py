@@ -140,22 +140,12 @@ def load_base64_image(image_path, label="Image"):
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
-# Toggle button
-toggle_label = "☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"
-if st.button(toggle_label):
-    st.session_state.show_sidebar = not st.session_state.show_sidebar
-
-# Fixed sidebar menu
-# Initialize toggle state
-if "show_sidebar" not in st.session_state:
-    st.session_state.show_sidebar = True
-
-# Inject fixed toggle button
-st.markdown("""
+# Inject fixed toggle button with top margin
+st.markdown(f"""
 <style>
-.toggle-button {
+.toggle-button {{
     position: fixed;
-    top: 20px;
+    top: 2rem;
     left: 20px;
     background-color: #7678ff;
     color: white;
@@ -167,22 +157,24 @@ st.markdown("""
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease;
-}
-.toggle-button:hover {
+}}
+.toggle-button:hover {{
     background-color: #5a5edc;
-}
+}}
 </style>
+
 <div class="toggle-button" onclick="document.dispatchEvent(new CustomEvent('toggleSidebar'))">
-    ☰ {label}
+    ☰ {"Hide Menu" if st.session_state.show_sidebar else "Show Menu"}
 </div>
+
 <script>
 document.addEventListener('toggleSidebar', function() {{
     fetch('/_stcore/toggle_sidebar', {{method: 'POST'}})
 }});
 </script>
-""".replace("{label}", "Hide Menu" if st.session_state.show_sidebar else "Show Menu"), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Fallback Streamlit button (for compatibility)
+# Fallback Streamlit button (optional for compatibility)
 if st.button("☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"):
     st.session_state.show_sidebar = not st.session_state.show_sidebar
 
@@ -233,11 +225,7 @@ if st.session_state.show_sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# Content container
-st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
-
-
-# Add spacing so content doesn't start under the sidebar
+# Content container to avoid overlap
 st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
 
 
