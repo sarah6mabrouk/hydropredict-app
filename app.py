@@ -136,60 +136,28 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-# Initialize toggle state
-if "show_sidebar" not in st.session_state:
-    st.session_state.show_sidebar = True
+# Sidebar toggle with checkbox
+show_sidebar = st.sidebar.checkbox("Show Sidebar", value=True)
 
-# Toggle button in the main UI
-if st.button("☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"):
-    st.session_state.show_sidebar = not st.session_state.show_sidebar
+if show_sidebar:
+    st.sidebar.markdown("""
+    ### Menu
+    - [🏠 Home](#home)
+    - [📘 What is Predictive Maintenance](#what)
+    - [🔍 Why Predictive Maintenance](#why)
+    - [⚙️ HydroPredict App – Process](#process)
+    - [🤖 ML Model](#model)
+    - [📊 Dashboard](#dashboard)
+    - [📬 Contact Me](#contact)
+    """)
 
-# Render sidebar menu if visible
-if st.session_state.show_sidebar:
-    st.markdown("""
-    <style>
-    .sidebar-menu {
-        position: fixed;
-        top: 130px;
-        left: 20px;
-        width: 220px;
-        background-color: #f5f7ff;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        font-family: 'Segoe UI', sans-serif;
-        z-index: 9999;
-    }
+# Main content
+st.markdown("""
+# Welcome to the app!
 
-    .sidebar-menu a {
-        display: block;
-        margin: 0.5rem 0;
-        color: #333;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
+Use the sidebar to navigate.
+""")
 
-    .sidebar-menu a:hover {
-        color: #7678ff;
-    }
-    </style>
-
-    <div class="sidebar-menu">
-        <a href="#home">🏠 Home</a>
-        <a href="#what">📘 What is Predictive Maintenance</a>
-        <a href="#why">🔍 Why Predictive Maintenance</a>
-        <a href="#process">⚙️ HydroPredict App – Process</a>
-        <a href="#model">🤖 ML Model</a>
-        <a href="#dashboard">📊 Dashboard</a>
-        <a href="#contact">📬 Contact Me</a>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
-else:
-    st.markdown("<div style='margin-left:20px'>", unsafe_allow_html=True)
 
 
 
