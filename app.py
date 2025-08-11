@@ -136,11 +136,10 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-import streamlit as st
-
 st.markdown("""
 <style>
 /* Override entire sidebar background */
+/* Target Streamlit sidebar container */
 [data-testid="stSidebar"] > div:first-child {
     background: linear-gradient(135deg, #acd7ff, #ACAEFF);
     border-radius: 0 10px 10px 0;
@@ -177,8 +176,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("# Welcome to the app!\n\nUse the sidebar to navigate.")
-
-
 
 
 
