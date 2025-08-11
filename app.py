@@ -311,15 +311,18 @@ else:
 st.markdown('<div id="what"></div>', unsafe_allow_html=True)
 
 # Section title
-st.write("## Not familiar with Predictive Maintenance? :blue[This 2-minute video explains it simply.]")
+st.write("## What is Predictive Maintenance?")
 
-# Definition paragraph
+# Definition of PdM
 st.markdown("""
-Predictive maintenance (PdM) is a proactive strategy that uses historical and real-time data—such as vibration, temperature, and acoustic signals—to monitor the health of equipment and anticipate failures before they happen.  
-By identifying anomalies early, it helps reduce unplanned downtime, optimize maintenance schedules, and extend asset lifespan.  
-Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
-""")
+<div style="font-size: 18px;">
+    Predictive maintenance (PdM) is a proactive strategy that uses historical and real-time data—such as vibration, temperature, and acoustic signals—to monitor the health of equipment and anticipate failures before they happen.<br>
+    By identifying anomalies early, it helps reduce unplanned downtime, optimize maintenance schedules, and extend asset lifespan.<br>
+    Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
+</div>
+""", unsafe_allow_html=True)
 
+st.write("### blue[This 2-minute video explains it simply.]")
 # Embedded video with styled container
 st.markdown("""
 <div style="
