@@ -136,8 +136,10 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
+# CSSnavbar
 st.markdown("""
 <style>
+/* Sidebar styling */
 .sidebar-menu {
     position: fixed;
     top: 100px;
@@ -148,8 +150,15 @@ st.markdown("""
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     font-family: 'Segoe UI', sans-serif;
     z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
+/* Hidden state */
+.sidebar-hidden {
+    transform: translateX(-300px);
+}
+
+/* Menu links */
 .sidebar-menu a {
     display: block;
     margin: 0.5rem 0;
@@ -163,9 +172,41 @@ st.markdown("""
 .sidebar-menu a:hover {
     color: #7678ff;
 }
-</style>
 
-<div class="sidebar-menu" id="sidebarMenu">
+/* Hamburger button */
+.hamburger {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background-color: #7678ff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# navbar code in itself
+# Initialize toggle state
+if "show_sidebar" not in st.session_state:
+    st.session_state.show_sidebar = True
+
+# Toggle button
+if st.button("☰ Menu", key="hamburger"):
+    st.session_state.show_sidebar = not st.session_state.show_sidebar
+
+# Render sidebar menu
+sidebar_class = "sidebar-menu"
+if not st.session_state.show_sidebar:
+    sidebar_class += " sidebar-hidden"
+
+st.markdown(f"""
+<div class="{sidebar_class}" id="sidebarMenu">
     <a href="#home">🏠 Home</a>
     <a href="#what">📘 What is Predictive Maintenance</a>
     <a href="#why">🔍 Why Predictive Maintenance</a>
