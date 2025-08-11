@@ -136,8 +136,6 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-import streamlit as st
-
 # Initialize toggle state
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
@@ -145,6 +143,47 @@ if "show_sidebar" not in st.session_state:
 # Toggle button
 toggle_label = "☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"
 if st.button(toggle_label):
+    st.session_state.show_sidebar = not st.session_state.show_sidebar
+
+# Fixed sidebar menu
+# Initialize toggle state
+if "show_sidebar" not in st.session_state:
+    st.session_state.show_sidebar = True
+
+# Inject fixed toggle button
+st.markdown("""
+<style>
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #7678ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10000;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+.toggle-button:hover {
+    background-color: #5a5edc;
+}
+</style>
+<div class="toggle-button" onclick="document.dispatchEvent(new CustomEvent('toggleSidebar'))">
+    ☰ {label}
+</div>
+<script>
+document.addEventListener('toggleSidebar', function() {{
+    fetch('/_stcore/toggle_sidebar', {{method: 'POST'}})
+}});
+</script>
+""".replace("{label}", "Hide Menu" if st.session_state.show_sidebar else "Show Menu"), unsafe_allow_html=True)
+
+# Fallback Streamlit button (for compatibility)
+if st.button("☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"):
     st.session_state.show_sidebar = not st.session_state.show_sidebar
 
 # Fixed sidebar menu
@@ -178,7 +217,6 @@ if st.session_state.show_sidebar:
         color: #7678ff;
     }
 
-    /* Prevent content overlap */
     .main {
         margin-left: 260px;
     }
@@ -194,6 +232,10 @@ if st.session_state.show_sidebar:
         <a href="#contact">📬 Contact Me</a>
     </div>
     """, unsafe_allow_html=True)
+
+# Content container
+st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
+
 
 # Add spacing so content doesn't start under the sidebar
 st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
