@@ -151,21 +151,19 @@ st.markdown("""
 }
 
 /* Style sidebar links */
-.css-1aumxhk a {
+.sidebar-content a {
     color: black !important;
-    text-decoration: none !important;  /* no underline */
+    text-decoration: none !important;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 12px;  /* space between links */
     font-weight: normal;
     font-size: 16px;
 }
-
-.css-1aumxhk a:hover {
-    color: black !important;            /* keep black on hover */
-    text-decoration: none !important;  /* no underline on hover */
+.sidebar-content a:hover {
+    color: #7678ff !important;
+    text-decoration: underline !important;
 }
 </style>
-""", unsafe_allow_html=True)
 
 st.sidebar.markdown("""
 - [🏠 Home](#home)
