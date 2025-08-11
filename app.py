@@ -136,50 +136,48 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-# Sidebar toggle with checkbox
-
 import streamlit as st
 
-show_sidebar = st.sidebar.checkbox("Show Sidebar", value=True)
+st.markdown("""
+<style>
+/* Override entire sidebar background */
+[data-testid="stSidebar"] > div:first-child {
+    background: linear-gradient(135deg, #acd7ff, #ACAEFF);
+    border-radius: 0 10px 10px 0;
+}
+/* Make sidebar full height */
+[data-testid="stSidebar"] {
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+}
+/* Style links inside sidebar */
+.sidebar-content a {
+    color: black !important;
+    text-decoration: none !important;
+    display: block;
+    margin-bottom: 12px;  /* space between links */
+    font-weight: normal;
+    font-size: 16px;
+}
+.sidebar-content a:hover {
+    color: #7678ff !important;
+    text-decoration: underline !important;
+}
+</style>
 
-if show_sidebar:
-    st.sidebar.markdown("""
-    <style>
-    /* Sidebar background gradient */
-    .sidebar-content {
-        background: linear-gradient(135deg, #acd7ff, #ACAEFF);
-        padding: 1rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-    }
-    /* Links styling */
-    .sidebar-content a {
-        color: black !important;
-        text-decoration: none !important;
-        display: block;
-        margin-bottom: 12px;  /* space between links */
-        font-weight: normal;
-        font-size: 16px;
-    }
-    /* Optional: link hover effect */
-    .sidebar-content a:hover {
-        color: #7678ff !important;
-        text-decoration: underline !important;
-    }
-    </style>
-
-    <div class="sidebar-content">
-        <a href="#home">🏠 Home</a>
-        <a href="#what">📘 What is Predictive Maintenance</a>
-        <a href="#why">🔍 Why Predictive Maintenance</a>
-        <a href="#process">⚙️ HydroPredict App – Process</a>
-        <a href="#model">🤖 ML Model</a>
-        <a href="#dashboard">📊 Dashboard</a>
-        <a href="#contact">📬 Contact Me</a>
-    </div>
-    """, unsafe_allow_html=True)
+<div class="sidebar-content">
+    <a href="#home">🏠 Home</a>
+    <a href="#what">📘 What is Predictive Maintenance</a>
+    <a href="#why">🔍 Why Predictive Maintenance</a>
+    <a href="#process">⚙️ HydroPredict App – Process</a>
+    <a href="#model">🤖 ML Model</a>
+    <a href="#dashboard">📊 Dashboard</a>
+    <a href="#contact">📬 Contact Me</a>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("# Welcome to the app!\n\nUse the sidebar to navigate.")
+
 
 
 
