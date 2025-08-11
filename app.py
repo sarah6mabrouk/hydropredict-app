@@ -358,8 +358,8 @@ st.markdown(f"""
         margin-top: 5rem;
         gap: 2rem;
         flex-wrap: wrap;">
-        <!-- Left Column: Text -->
-        <div style="flex: 1; min-width: 200px; text-align: right;">
+        <!-- Left Column: image -->
+        <div style="flex: 1; min-width: 200px; text-align: left;">
             <img src="data:image/png;base64,{base64_image_section1}" 
             alt="Predictive Maintenance" 
             style=
@@ -368,7 +368,7 @@ st.markdown(f"""
             border-radius: 15px; 
             ">
         </div>  
-        <!-- Right Column: Image -->
+        <!-- Right Column: text -->
         <div style="flex: 1; min-width: 300px;">
             <h2 style="margin-bottom: 1rem; color:#7678ff;"> Why Predictive Maintenance Matters</h2>
             <p style="font-size: 20px; line-height: 1.6;">
