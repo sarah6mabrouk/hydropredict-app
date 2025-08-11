@@ -634,12 +634,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div style= "text-align: center; padding: 50px;">
-    <div class='left button-link'>
-        <a href="https://www.linkedin.com/in/sarahmab" target="_blank">
-    <button>Contact Me</button>
-</a>
-    </div>
+<div style="text-align: center; padding: 50px;">
+    <a href="https://www.linkedin.com/in/sarahmab" target="_blank" class="button-link">
+        Contact Me
+    </a>
 </div>
 """, unsafe_allow_html=True)
 
