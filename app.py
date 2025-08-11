@@ -348,27 +348,28 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # == 2. Why predictive maintenance?==
+st.markdown('<div id="why"></div>', unsafe_allow_html=True)
 st.markdown(f"""
-st.markdown(f"""
-    <div id="predictive-maintenance" style=
-        "display: flex; 
+    <div id="predictive-maintenance" style="
+        display: flex; 
         min-height: 400px;
         align-items: center;
         justify-content: space-between;
         margin-top: 5rem;
         gap: 2rem;
         flex-wrap: wrap;">
-        <!-- Left Column: Text -->
+        
+        <!-- Left Column: Image -->
         <div style="flex: 1; min-width: 200px; text-align: right;">
             <img src="data:image/png;base64,{base64_image_section1}" 
             alt="Predictive Maintenance" 
-            style=
-            "width: 100%;
-            max-width: 30rem; 
-            border-radius: 15px; 
-            ">
+            style="
+                width: 100%;
+                max-width: 30rem; 
+                border-radius: 15px;">
         </div>  
-        <!-- Right Column: Image -->
+
+        <!-- Right Column: Text -->
         <div style="flex: 1; min-width: 300px;">
             <h2 style="margin-bottom: 1rem; color:#7678ff;"> Why Predictive Maintenance Matters</h2>
             <p style="font-size: 20px; line-height: 1.6;">
@@ -381,7 +382,6 @@ st.markdown(f"""
             </ul>
         </div>  
     </div>
-
 """, unsafe_allow_html=True)
 
 
