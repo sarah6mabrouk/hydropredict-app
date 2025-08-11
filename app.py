@@ -397,7 +397,7 @@ base64_insights = load_base64_image("assets/insight.png", label = "Inight Image"
 st.markdown('<div id="process"></div>', unsafe_allow_html=True)
 st.markdown(f"""
 <div style="margin-top: 5rem; margin-bottom: 5rem;">
-    <h2 style="text-align: left; margin-bottom: 2rem; color:#7678ff;">⚙️ Discover the streamlined process behind HydroPredict's predictive maintenance technology.
+    <h2 style="text-align: left; margin-bottom: 2rem; color:#7678ff;">Discover the streamlined process behind HydroPredict's predictive maintenance technology.
     </h2>
     <div style="
             display:flex;
