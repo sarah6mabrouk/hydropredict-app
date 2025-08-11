@@ -184,7 +184,7 @@ if st.session_state.show_sidebar:
     <style>
     .sidebar-menu {
         position: fixed;
-        top: 80px;
+        top: 110px;
         left: 20px;
         width: 220px;
         background-color: #f5f7ff;
