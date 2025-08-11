@@ -136,14 +136,24 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-# Initialize toggle state
+import streamlit as st
 
+# Initialize toggle state
+if "show_sidebar" not in st.session_state:
+    st.session_state.show_sidebar = True
+
+# Toggle button
+toggle_label = "☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"
+if st.button(toggle_label):
+    st.session_state.show_sidebar = not st.session_state.show_sidebar
+
+# Fixed sidebar menu
 if st.session_state.show_sidebar:
     st.markdown("""
     <style>
     .sidebar-menu {
         position: fixed;
-        top: 80px; /* adjust based on your header height */
+        top: 80px;
         left: 20px;
         width: 220px;
         background-color: #f5f7ff;
@@ -168,9 +178,9 @@ if st.session_state.show_sidebar:
         color: #7678ff;
     }
 
-    /* Prevent Streamlit content from overlapping the sidebar */
+    /* Prevent content overlap */
     .main {
-        margin-left: 260px; /* width + spacing */
+        margin-left: 260px;
     }
     </style>
 
@@ -184,6 +194,10 @@ if st.session_state.show_sidebar:
         <a href="#contact">📬 Contact Me</a>
     </div>
     """, unsafe_allow_html=True)
+
+# Add spacing so content doesn't start under the sidebar
+st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
+
 
 # ---------------------------------
 # Header - Home
