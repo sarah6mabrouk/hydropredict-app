@@ -134,66 +134,36 @@ def load_base64_image(image_path, label="Image"):
 
 
 # ---------------------------------
-# Navbar
+# sidebar
 #----------------------------------
 st.markdown("""
 <style>
-/* Hamburger menu styles */
-.menu-toggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10001;
-    cursor: pointer;
-    width: 30px;
-    height: 25px;
-}
-
-.menu-toggle span {
-    display: block;
-    height: 4px;
-    margin: 5px 0;
-    background: #333;
-    border-radius: 2px;
-    transition: 0.3s;
-}
-
 .sidebar-menu {
     position: fixed;
-    top: 0;
-    left: -250px;
-    width: 220px;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    padding-top: 60px;
-    transition: left 0.3s ease;
-    z-index: 10000;
+    top: 100px;
+    left: 30px;
+    background-color: #f5f7ff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 1000;
 }
 
 .sidebar-menu a {
     display: block;
-    padding: 15px 20px;
+    margin: 0.5rem 0;
     color: #333;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .sidebar-menu a:hover {
-    background-color: #e6f0ff;
-    color: #0072ff;
-}
-
-.sidebar-menu.open {
-    left: 0;
+    color: #7678ff;
 }
 </style>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
 
 <div class="sidebar-menu" id="sidebarMenu">
     <a href="#home">🏠 Home</a>
@@ -204,13 +174,6 @@ st.markdown("""
     <a href="#dashboard">📊 Dashboard</a>
     <a href="#contact">📬 Contact Me</a>
 </div>
-
-<script>
-function toggleMenu() {
-    const menu = document.getElementById("sidebarMenu");
-    menu.classList.toggle("open");
-}
-</script>
 """, unsafe_allow_html=True)
 
 
