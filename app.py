@@ -312,8 +312,12 @@ else:
 st.markdown('<div id="what"></div>', unsafe_allow_html=True)
 
 # Definition of PdM
+st.markdown("""
+<div style="margin-top: 5rem;">
+""", unsafe_allow_html=True)
+
 # Create two columns
-col1, col2 = st.columns([1, 1])  # You can tweak the ratio if needed
+col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown("## <span style='color:#7678ff'>What is Predictive Maintenance?</span>", unsafe_allow_html=True)
@@ -348,6 +352,9 @@ with col2:
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+# Close the outer container
+st.markdown("</div>", unsafe_allow_html=True)
 
 # == 2. Why predictive maintenance?==
 st.markdown('<div id="why"></div>', unsafe_allow_html=True)
