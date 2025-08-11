@@ -145,7 +145,7 @@ st.markdown(f"""
 <style>
 .toggle-button {{
     position: fixed;
-    top: 2rem;
+    top: 5rem;
     left: 20px;
     background-color: #7678ff;
     color: white;
