@@ -140,53 +140,17 @@ def load_base64_image(image_path, label="Image"):
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
-# Fixed-position button using HTML + Streamlit form
-st.markdown("""
-<style>
-.fixed-toggle {
-    position: fixed;
-    top: 2rem;
-    left: 20px;
-    z-index: 10000;
-}
-.fixed-toggle button {
-    background-color: #7678ff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
-}
-.fixed-toggle button:hover {
-    background-color: #5a5edc;
-}
-</style>
-<div class="fixed-toggle">
-    <form action="" method="post">
-        <button name="toggle" type="submit">☰ {label}</button>
-    </form>
-</div>
-""".replace("{label}", "Hide Menu" if st.session_state.show_sidebar else "Show Menu"), unsafe_allow_html=True)
-
-# Detect button click using query params workaround
-if "toggle_clicked" not in st.session_state:
-    st.session_state.toggle_clicked = False
-
-if st.query_params.get("toggle") is not None:
+# Toggle button in the main UI
+if st.button("☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"):
     st.session_state.show_sidebar = not st.session_state.show_sidebar
-    st.query_params.clear()
 
-# Sidebar menu
+# Render sidebar menu if visible
 if st.session_state.show_sidebar:
     st.markdown("""
     <style>
     .sidebar-menu {
         position: fixed;
-        top: 80px;
+        top: 130px;
         left: 20px;
         width: 220px;
         background-color: #f5f7ff;
@@ -210,10 +174,6 @@ if st.session_state.show_sidebar:
     .sidebar-menu a:hover {
         color: #7678ff;
     }
-
-    .main {
-        margin-left: 260px;
-    }
     </style>
 
     <div class="sidebar-menu">
@@ -227,8 +187,10 @@ if st.session_state.show_sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# Content container
-st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
+else:
+    st.markdown("<div style='margin-left:20px'>", unsafe_allow_html=True)
+
 
 
 
