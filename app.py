@@ -1,3 +1,8 @@
+# Google verification file
+if st.query_params.get("verify") == "google6b04cdb89a6ecbd5.html":
+    st.write("google-site-verification: google6b04cdb89a6ecbd5.html")
+    st.stop()
+
 import streamlit as st
 import base64
 import os
@@ -6,11 +11,6 @@ import numpy as np
 import pandas as pd
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
-
-# Google verification file
-if st.query_params.get("verify") == "google6b04cdb89a6ecbd5.html":
-    st.write("google-site-verification: google6b04cdb89a6ecbd5.html")
-    st.stop()
     
 # == Set Streamlit page config ==
 st.set_page_config(page_title="HydroPredict", layout="wide")
