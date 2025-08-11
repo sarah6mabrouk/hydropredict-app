@@ -311,9 +311,6 @@ else:
 # Anchor for scrolling
 st.markdown('<div id="what"></div>', unsafe_allow_html=True)
 
-# Section title
-st.markdown("## <span style='color:blue'>What is Predictive Maintenance?</span>", unsafe_allow_html=True)
-
 # Definition of PdM
 # Create two columns
 col1, col2 = st.columns([1, 1])  # You can tweak the ratio if needed
@@ -327,7 +324,7 @@ with col1:
         Unlike preventive maintenance, which relies on fixed schedules, PdM responds to actual equipment conditions, making it smarter and more cost-effective.
     </div>
     """, unsafe_allow_html=True)
-    st.markdown("### <span style='color:blue'>This 2-minute video explains it simply.</span>", unsafe_allow_html=True)
+    st.markdown("### <span style='color:blue'>This 2-minute video explains it simply --> </span>", unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
