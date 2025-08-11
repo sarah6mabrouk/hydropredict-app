@@ -136,87 +136,51 @@ def load_base64_image(image_path, label="Image"):
 # ---------------------------------
 # sidebar
 #----------------------------------
-# CSSnavbar
-st.markdown("""
-<style>
-/* Sidebar styling */
-.sidebar-menu {
-    position: fixed;
-    top: 100px;
-    left: 30px;
-    background-color: #f5f7ff;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', sans-serif;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-/* Hidden state */
-.sidebar-hidden {
-    transform: translateX(-300px);
-}
-
-/* Menu links */
-.sidebar-menu a {
-    display: block;
-    margin: 0.5rem 0;
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.sidebar-menu a:hover {
-    color: #7678ff;
-}
-
-/* Hamburger button */
-.hamburger {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    background-color: #7678ff;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 1100;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-</style>
-""", unsafe_allow_html=True)
-
-# navbar code in itself
 # Initialize toggle state
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
-# Toggle button
-if st.button("☰ Menu", key="hamburger"):
+# Hamburger-style toggle button
+toggle_label = "☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"
+if st.button(toggle_label):
     st.session_state.show_sidebar = not st.session_state.show_sidebar
 
-# Render sidebar menu
-sidebar_class = "sidebar-menu"
-if not st.session_state.show_sidebar:
-    sidebar_class += " sidebar-hidden"
+if st.session_state.show_sidebar:
+    st.markdown("""
+    <style>
+    .sidebar-menu {
+        background-color: #f5f7ff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-st.markdown(f"""
-<div class="{sidebar_class}" id="sidebarMenu">
-    <a href="#home">🏠 Home</a>
-    <a href="#what">📘 What is Predictive Maintenance</a>
-    <a href="#why">🔍 Why Predictive Maintenance</a>
-    <a href="#process">⚙️ HydroPredict App – Process</a>
-    <a href="#model">🤖 ML Model</a>
-    <a href="#dashboard">📊 Dashboard</a>
-    <a href="#contact">📬 Contact Me</a>
-</div>
-""", unsafe_allow_html=True)
+    .sidebar-menu a {
+        display: block;
+        margin: 0.5rem 0;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
 
+    .sidebar-menu a:hover {
+        color: #7678ff;
+    }
+    </style>
+
+    <div class="sidebar-menu">
+        <a href="#home">🏠 Home</a>
+        <a href="#what">📘 What is Predictive Maintenance</a>
+        <a href="#why">🔍 Why Predictive Maintenance</a>
+        <a href="#process">⚙️ HydroPredict App – Process</a>
+        <a href="#model">🤖 ML Model</a>
+        <a href="#dashboard">📊 Dashboard</a>
+        <a href="#contact">📬 Contact Me</a>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # ---------------------------------
