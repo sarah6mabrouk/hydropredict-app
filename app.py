@@ -137,23 +137,21 @@ def load_base64_image(image_path, label="Image"):
 # sidebar
 #----------------------------------
 # Initialize toggle state
-if "show_sidebar" not in st.session_state:
-    st.session_state.show_sidebar = True
-
-# Hamburger-style toggle button
-toggle_label = "☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"
-if st.button(toggle_label):
-    st.session_state.show_sidebar = not st.session_state.show_sidebar
 
 if st.session_state.show_sidebar:
     st.markdown("""
     <style>
     .sidebar-menu {
+        position: fixed;
+        top: 80px; /* adjust based on your header height */
+        left: 20px;
+        width: 220px;
         background-color: #f5f7ff;
         padding: 1rem;
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         font-family: 'Segoe UI', sans-serif;
+        z-index: 9999;
     }
 
     .sidebar-menu a {
@@ -169,6 +167,11 @@ if st.session_state.show_sidebar:
     .sidebar-menu a:hover {
         color: #7678ff;
     }
+
+    /* Prevent Streamlit content from overlapping the sidebar */
+    .main {
+        margin-left: 260px; /* width + spacing */
+    }
     </style>
 
     <div class="sidebar-menu">
@@ -181,7 +184,6 @@ if st.session_state.show_sidebar:
         <a href="#contact">📬 Contact Me</a>
     </div>
     """, unsafe_allow_html=True)
-
 
 # ---------------------------------
 # Header - Home
