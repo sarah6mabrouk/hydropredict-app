@@ -140,51 +140,53 @@ def load_base64_image(image_path, label="Image"):
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
-# Inject fixed toggle button with top margin
-st.markdown(f"""
+# Fixed-position button using HTML + Streamlit form
+st.markdown("""
 <style>
-.toggle-button {{
+.fixed-toggle {
     position: fixed;
-    top: 5rem;
+    top: 2rem;
     left: 20px;
+    z-index: 10000;
+}
+.fixed-toggle button {
     background-color: #7678ff;
     color: white;
     padding: 0.5rem 1rem;
+    border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
-    z-index: 10000;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease;
-}}
-.toggle-button:hover {{
+}
+.fixed-toggle button:hover {
     background-color: #5a5edc;
-}}
+}
 </style>
-
-<div class="toggle-button" onclick="document.dispatchEvent(new CustomEvent('toggleSidebar'))">
-    ☰ {"Hide Menu" if st.session_state.show_sidebar else "Show Menu"}
+<div class="fixed-toggle">
+    <form action="" method="post">
+        <button name="toggle" type="submit">☰ {label}</button>
+    </form>
 </div>
+""".replace("{label}", "Hide Menu" if st.session_state.show_sidebar else "Show Menu"), unsafe_allow_html=True)
 
-<script>
-document.addEventListener('toggleSidebar', function() {{
-    fetch('/_stcore/toggle_sidebar', {{method: 'POST'}})
-}});
-</script>
-""", unsafe_allow_html=True)
+# Detect button click using query params workaround
+if "toggle_clicked" not in st.session_state:
+    st.session_state.toggle_clicked = False
 
-# Fallback Streamlit button (optional for compatibility)
-if st.button("☰ Hide Menu" if st.session_state.show_sidebar else "☰ Show Menu"):
+if st.query_params.get("toggle") is not None:
     st.session_state.show_sidebar = not st.session_state.show_sidebar
+    st.query_params.clear()
 
-# Fixed sidebar menu
+# Sidebar menu
 if st.session_state.show_sidebar:
     st.markdown("""
     <style>
     .sidebar-menu {
         position: fixed;
-        top: 130px;
+        top: 80px;
         left: 20px;
         width: 220px;
         background-color: #f5f7ff;
@@ -225,8 +227,9 @@ if st.session_state.show_sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-# Content container to avoid overlap
+# Content container
 st.markdown("<div style='margin-left:260px'>", unsafe_allow_html=True)
+
 
 
 # ---------------------------------
