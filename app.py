@@ -150,6 +150,13 @@ st.markdown("""
     overflow: hidden;
 }
 
+/* Style header text */
+.sidebar-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: black;
+}
 /* Target all links inside the sidebar */
 [data-testid="stSidebar"] a {
     color: black !important;
@@ -169,6 +176,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.sidebar.markdown("""
+<div class="sidebar-header">Explore</div>
+
  [🏠 Home](#home)
  [📘 What is Predictive Maintenance](#what)
  [🔍 Why Predictive Maintenance](#why)
@@ -176,7 +185,7 @@ st.sidebar.markdown("""
  [🤖 ML Model](#model)
  [📊 Dashboard](#dashboard)
  [📬 Contact Me](#contact)
-""")
+""", unsafe_allow_html=True)
 
 
 st.markdown("# Welcome to HydroPredict!\n\nUse the sidebar to navigate - Sarah Mabrouk")
