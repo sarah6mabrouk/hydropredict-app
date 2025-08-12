@@ -6,9 +6,19 @@ import numpy as np
 import pandas as pd
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
+from sklearn.preprocessing import StandardScaler
+import xgboost as xgb
+from typing import Tuple, List, Any
+from sklearn.preprocessing import StandardScaler
+from xgboost import XGBClassifier
+
 
 # == Set Streamlit page config ==
-st.set_page_config(page_title="HydroPredict", layout="wide")
+st.set_page_config(
+    page_title="HydroPredict - Predictive Maintenance for Hydraulic Systems",
+    page_icon="🔧",  # Optional: you can use an emoji or a URL to an icon
+    layout="wide"
+)
 
 # ----------------------------
 # Theme Setup via CSS
@@ -427,18 +437,15 @@ st.markdown(f"""
 
 st.markdown('<div id="model"></div>', unsafe_allow_html=True)
 
+
 @st.cache_resource
-def load_artifacts():
+def load_artifacts() -> Tuple[XGBClassifier, StandardScaler, List[str], List[float]]:
     base_path = os.path.join(os.getcwd(), "models")
-    try:
-        model = jbl.load(os.path.join(base_path, "xgb_means_model.pkl"))
-        scaler = jbl.load(os.path.join(base_path, "means_scaler.pkl"))
-        mean_columns = jbl.load(os.path.join(base_path, "mean_columns.pkl"))
-        default_input = jbl.load(os.path.join(base_path, "default_input_mean.pkl"))
-        return model, scaler, mean_columns, default_input
-    except FileNotFoundError as e:
-        st.error(f"File not found: {e}")
-        return None, None, None, None
+    model = jbl.load(os.path.join(base_path, "xgb_means_model.pkl"))
+    scaler = jbl.load(os.path.join(base_path, "means_scaler.pkl"))
+    mean_columns = jbl.load(os.path.join(base_path, "mean_columns.pkl"))
+    default_input = jbl.load(os.path.join(base_path, "default_input_mean.pkl"))
+    return model, scaler, mean_columns, default_input
 
 # Load the saved model, scaler, and feature names
 model, scaler, mean_columns, default_input = load_artifacts()
